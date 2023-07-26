@@ -10,9 +10,7 @@ jobs:
     steps:
     # Checkout code
     - uses: action/checkout@v3
-      with:
-        path: repo
-        
+       
     # Log into Azure
     - uses: azure/login@v1
       with:
