@@ -1,26 +1,26 @@
-name: deploy-Standard-Azure-Landing-Zone
-
 on: [workflow_dispatch]
-
-permissions:
-  id-token: write
-  contents: read
-  
+name: deploy-Standard-Azure-Landing-Zone
+ 
 env:
     ENVIRONMENT: nonprod
-  
+
 jobs:
   build-Azure-Landing-Zone:
     runs-on: ubuntu-latest
     steps:
+    # Checkout code
     - uses: action/checkout@v3
       with:
         path: repo
+        
+    # Log into Azure
     - uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ seccrets.AZURE_CLIENT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        
+    # Deploy Network module
     - uses: azure/arm-deploy@vv1
       with:
         deploymentName: ${{ github.run_number }}
