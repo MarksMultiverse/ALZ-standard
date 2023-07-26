@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checkout code
-    - uses: action/checkout@v2
-      with:
-       path: repo      
+    - uses: action/checkout@v3
        
     # Log into Azure
     - uses: azure/login@v1
@@ -28,5 +26,5 @@ jobs:
     - uses: azure/arm-deploy@v1
       with:
         deploymentName: ${{ github.run_number }}
-        template: ./.github/1. BasiciInfra/1. Connectivity/main.bicep
+        template: ./.github/1.%20Basic%20infra/1.%20Connectivity/main.bicep
         parameters: evironmentType=${{ env.ENVIRONMENT }}
