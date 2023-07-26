@@ -21,7 +21,7 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         
     # Deploy Network module
-    - uses: azure/arm-deploy@vv1
+    - uses: azure/arm-deploy@v1
       with:
         deploymentName: ${{ github.run_number }}
         template: ./1.Basic Infra/1. Connectivity/main.bicep
