@@ -3,6 +3,10 @@ name: deploy-Standard-Azure-Landing-Zone
  
 env:
     ENVIRONMENT: nonprod
+   
+permissions:
+      id-token: write
+      contents: read
 
 jobs:
   build-Azure-Landing-Zone:
